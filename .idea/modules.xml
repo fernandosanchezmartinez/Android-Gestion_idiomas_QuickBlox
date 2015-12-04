@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/actividad_5/actividad_5.iml" filepath="$PROJECT_DIR$/actividad_5/actividad_5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hectorn-actividad_4b_lidia_hector-f6dfafe20ab5.iml" filepath="$PROJECT_DIR$/hectorn-actividad_4b_lidia_hector-f6dfafe20ab5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmdm_lib/pmdm_lib.iml" filepath="$PROJECT_DIR$/pmdm_lib/pmdm_lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quickblox-android-sdk-chat-2.3.3/quickblox-android-sdk-chat-2.3.3.iml" filepath="$PROJECT_DIR$/quickblox-android-sdk-chat-2.3.3/quickblox-android-sdk-chat-2.3.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quickblox-android-sdk-content-2.3.3/quickblox-android-sdk-content-2.3.3.iml" filepath="$PROJECT_DIR$/quickblox-android-sdk-content-2.3.3/quickblox-android-sdk-content-2.3.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quickblox-android-sdk-core-2.3.3/quickblox-android-sdk-core-2.3.3.iml" filepath="$PROJECT_DIR$/quickblox-android-sdk-core-2.3.3/quickblox-android-sdk-core-2.3.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quickblox-android-sdk-customobjects-2.3.3/quickblox-android-sdk-customobjects-2.3.3.iml" filepath="$PROJECT_DIR$/quickblox-android-sdk-customobjects-2.3.3/quickblox-android-sdk-customobjects-2.3.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quickblox-android-sdk-location-2.3.3/quickblox-android-sdk-location-2.3.3.iml" filepath="$PROJECT_DIR$/quickblox-android-sdk-location-2.3.3/quickblox-android-sdk-location-2.3.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quickblox-android-sdk-messages-2.3.3/quickblox-android-sdk-messages-2.3.3.iml" filepath="$PROJECT_DIR$/quickblox-android-sdk-messages-2.3.3/quickblox-android-sdk-messages-2.3.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quickblox-android-sdk-ratings-2.3.3/quickblox-android-sdk-ratings-2.3.3.iml" filepath="$PROJECT_DIR$/quickblox-android-sdk-ratings-2.3.3/quickblox-android-sdk-ratings-2.3.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quickblox-android-sdk-videochat-2.3.3/quickblox-android-sdk-videochat-2.3.3.iml" filepath="$PROJECT_DIR$/quickblox-android-sdk-videochat-2.3.3/quickblox-android-sdk-videochat-2.3.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quickblox-android-sdk-videochat-webrtc-2.3.3/quickblox-android-sdk-videochat-webrtc-2.3.3.iml" filepath="$PROJECT_DIR$/quickblox-android-sdk-videochat-webrtc-2.3.3/quickblox-android-sdk-videochat-webrtc-2.3.3.iml" />
+    </modules>
+  </component>
+</project>
