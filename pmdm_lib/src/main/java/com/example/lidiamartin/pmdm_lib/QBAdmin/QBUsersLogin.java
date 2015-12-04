@@ -14,12 +14,16 @@ import java.util.List;
 public class QBUsersLogin {
 
     boolean exito;
-    private QBAdminListener listener;
+    private QBUsersLoginListener listener;
+
+    public void addQBUserLoginListener(QBUsersLoginListener list) {
+        listener = list;
+    }
 
     // hay que pasar por parametro el ID y password
-    public void Loguin() {
+    public void loginUsuario(String usuario, String password) {
 
-        QBUser user = new QBUser("garry", "garry2892pass");
+        QBUser user = new QBUser(usuario, password);
 
         QBUsers.signIn(user, new QBEntityCallbackImpl<QBUser>() {
             @Override

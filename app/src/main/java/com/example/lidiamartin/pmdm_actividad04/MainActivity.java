@@ -81,6 +81,11 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener {
         tv2.setText(arrValor.get(1).toString());
     }
 
+    //@Override
+    public void login(boolean logeado) {
+
+    }
+
     public TextView getTv1() {
         return tv1;
     }

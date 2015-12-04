@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public interface QBAdminListener {
 
     public void sessionCreada(boolean esCreada);
-    public void getIdioma(ArrayList<QBCustomObject> datos);
-    public void login(boolean logeado);
+   // public void getIdioma(ArrayList<QBCustomObject> datos);
+
 
 
 

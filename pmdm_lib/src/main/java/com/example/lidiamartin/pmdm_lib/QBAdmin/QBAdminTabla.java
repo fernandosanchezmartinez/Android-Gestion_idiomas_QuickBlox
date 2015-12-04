@@ -35,13 +35,13 @@ public class QBAdminTabla {
                 @Override
                 public void onSuccess(ArrayList<QBCustomObject> arrCustomObjects, Bundle params) {
                     Log.v("QBAdminTabla", "Conx. Data correcto");
-                    listener.getIdioma(arrCustomObjects);
+                  //  listener.getIdioma(arrCustomObjects);
                 }
 
                 @Override
                 public void onError(List<String> errors) {
                     Log.v("QBAdminTabla", "Error Conx. Data "+errors);
-                    listener.getIdioma(null);
+                  //  listener.getIdioma(null);
 
                 }
             });

@@ -1,23 +1,28 @@
 package utad_dam.actividad_5;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lidiamartin.pmdm_lib.QBAdmin.JSONAdmin.JSONParse;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdmin;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminListener;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminTabla;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBUsersLogin;
+import com.example.lidiamartin.pmdm_lib.QBAdmin.QBUsersLoginListener;
 import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity implements QBAdminListener {
+public class MainActivity extends AppCompatActivity implements QBAdminListener, QBUsersLoginListener {
     private QBAdmin qbAdmin;
     private QBAdminTabla qbAdminTabla;
     private JSONParse jsonParse;
@@ -27,8 +32,13 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener {
     private TextView tv2;
     private EditText et1;
     private EditText et2;
-
+    private Button botonLogin;
     private String idioma="1";
+    private String nombre;
+    private String password;
+
+
+    buttonListener botonListener;
 
     // Datos para logearse al QBX
     private String apId ="31577";
@@ -39,14 +49,25 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        botonListener = new buttonListener(this);
+
         tv1 = (TextView) findViewById(R.id.textView1);
         tv2 = (TextView) findViewById(R.id.textView2);
         et1 = (EditText) findViewById(R.id.editText3);
         et2 = (EditText) findViewById(R.id.editText4);
-        qbAdmin = new QBAdmin(apId, apKey, apSecret);
+        botonLogin = (Button) findViewById(R.id.button2);
+        botonLogin.setOnClickListener(botonListener);
 
+        qbAdmin = new QBAdmin(apId, apKey, apSecret);
+        qbUsersLogin=new QBUsersLogin();
+
+        qbUsersLogin.addQBUserLoginListener(this);
         qbAdmin.addQBAdminListener(this);
         qbAdmin.sessionSimple();
+
+
+
 
         //
 
@@ -62,12 +83,19 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener {
 
     }
 
+    public void logear(){
 
-    @Override
+        nombre = String.valueOf(et1.getText());
+        password = String.valueOf(et2.getText());
+
+        qbUsersLogin.loginUsuario(nombre, password);
+    }
+
+   @Override
     public void sessionCreada(boolean esCreada) {
         if (esCreada) {
             Log.v("sessionCreada", " session creada " + esCreada);
-            qbAdminTabla.getData(idioma);
+           // qbAdminTabla.getData(idioma);
 
 
         } else {
@@ -75,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener {
         }
     }
 
-    @Override
+   /* @Override
     public void getIdioma(ArrayList<QBCustomObject> arrCustomObjects) {
         ArrayList<String> arrValor = new ArrayList<>();
         this.dataLang = arrCustomObjects;
@@ -93,21 +121,32 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener {
         }
         tv1.setText(arrValor.get(0).toString());
         tv2.setText(arrValor.get(1).toString());
-    }
+    }*/
+
+
 
     @Override
     public void login(boolean logeado) {
 
         if (logeado == true){
-            // Lanzar al otro activity
+
+            lanzar1();
+
+            Toast.makeText(MainActivity.this, et1.getText() + " Ha logueado con éxito ", Toast.LENGTH_SHORT).show();
         } else {
-            // Usuario contraseña invalidos
+            Toast.makeText(MainActivity.this, " Usuario o contraseña inválidos ", Toast.LENGTH_SHORT).show();
         }
 
     }
 
+    public void lanzar1() {
+        Intent i = new Intent(this, Activity1.class );
+        startActivity(i);
+    }
 
-    public TextView getTv1() {
+
+
+    /*public TextView getTv1() {
         return tv1;
     }
 
@@ -121,7 +160,9 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener {
 
     public void setTv2(TextView tv2) {
         this.tv2 = tv2;
-    }
+    }*/
+
+
 
 
 }
