@@ -79,5 +79,11 @@
                 android:text="Login"
                 android:id="@+id/button2" />
         </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="152dp"
+            android:layout_weight="1.38"></LinearLayout>
     </LinearLayout>
 </RelativeLayout>
