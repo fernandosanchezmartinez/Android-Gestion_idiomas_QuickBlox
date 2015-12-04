@@ -76,7 +76,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="LOGEARSE"
                 android:id="@+id/button2" />
         </LinearLayout>
 
@@ -84,6 +84,37 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="152dp"
-            android:layout_weight="1.38"></LinearLayout>
+            android:layout_weight="1.38"
+            android:gravity="center">
+
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="218dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp" >
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Español"
+                    android:id="@+id/radioButton"
+                    android:checked="true"
+                    android:textSize="20dp"
+                    android:onClick="onRadioButtonClicked"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ingles"
+                    android:id="@+id/radioButton2"
+                    android:checked="false"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="20dp"
+                    android:onClick="onRadioButtonClicked"/>
+
+
+            </RadioGroup>
+
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

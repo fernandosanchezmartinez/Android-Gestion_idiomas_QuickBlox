@@ -11,7 +11,7 @@ public interface QBAdminListener {
 
     public void sessionCreada(boolean esCreada);
     //public void cargarEventos(ArrayList<QBCustomObject> customObjects2);
-   // public void getIdioma(ArrayList<QBCustomObject> datos);
+
 
 
 

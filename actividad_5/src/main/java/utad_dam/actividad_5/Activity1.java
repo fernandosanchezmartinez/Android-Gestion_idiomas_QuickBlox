@@ -3,25 +3,43 @@ package utad_dam.actividad_5;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.TextView;
 
+import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminIdioma;
+import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminIdiomaListener;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminTabla;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminTablaListener;
 import com.quickblox.customobjects.model.QBCustomObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by hector.navarro on 04/12/2015.
  */
 public class Activity1 extends ListActivity implements QBAdminTablaListener{
 
+   // private QBAdminIdioma qbAdminIdioma;
     private QBAdminTabla qbAdminTabla;
+    private ArrayList<QBCustomObject> dataLang;
+
+
+
+
     ArrayList alumnos = new ArrayList<evento>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
         qbAdminTabla = new QBAdminTabla();
+        //qbAdminIdioma = new QBAdminIdioma();
+
+       // qbAdminIdioma.addIdiomaListener(this);
         qbAdminTabla.addListeners(this);
         qbAdminTabla.getData();
 
@@ -52,4 +70,6 @@ public class Activity1 extends ListActivity implements QBAdminTablaListener{
             setListAdapter(new AdaptadorLista(this, alumnos));
         }
     }
+
+
 }

@@ -5,13 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lidiamartin.pmdm_lib.QBAdmin.JSONAdmin.JSONParse;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdmin;
+import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminIdioma;
+import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminIdiomaListener;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminListener;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminTabla;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBUsersLogin;
@@ -22,9 +26,11 @@ import com.quickblox.users.model.QBUser;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity implements QBAdminListener, QBUsersLoginListener {
+public class MainActivity extends AppCompatActivity implements QBAdminListener, QBUsersLoginListener, QBAdminIdiomaListener{
     private QBAdmin qbAdmin;
     private QBAdminTabla qbAdminTabla;
+    private QBAdminIdioma qbAdminIdioma;
+
     private JSONParse jsonParse;
     private QBUsersLogin qbUsersLogin;
     private ArrayList<QBCustomObject> dataLang;
@@ -61,8 +67,11 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener, 
 
         qbAdmin = new QBAdmin(apId, apKey, apSecret);
         qbUsersLogin=new QBUsersLogin();
+        qbAdminIdioma=new QBAdminIdioma();
 
         qbUsersLogin.addQBUserLoginListener(this);
+        qbAdminIdioma.addIdiomaListener(this);
+
         qbAdmin.addQBAdminListener(this);
         qbAdmin.sessionSimple();
 
@@ -103,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener, 
         }
     }
 
-   /* @Override
+    @Override
     public void getIdioma(ArrayList<QBCustomObject> arrCustomObjects) {
         ArrayList<String> arrValor = new ArrayList<>();
         this.dataLang = arrCustomObjects;
@@ -119,9 +128,12 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener, 
 
             }
         }
+
+
         tv1.setText(arrValor.get(0).toString());
         tv2.setText(arrValor.get(1).toString());
-    }*/
+        botonLogin.setText(arrValor.get(2).toString());
+    }
 
 
 
@@ -145,6 +157,34 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener, 
     }
 
 
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radioButton:
+                if (checked)
+                    idioma = "1";
+                break;
+            case R.id.radioButton2:
+                if (checked)
+                    idioma = "2";
+                break;
+           /* case R.id.radioButton3:
+                if (checked)
+                    idioma = "3";
+                break;*/
+        }
+
+        if (idioma.equals("1")){
+            qbAdminIdioma.getData(idioma);
+        } else   if (idioma.equals("2")){
+            qbAdminIdioma.getData(idioma);
+        } /*else   if (idioma.equals("3")){
+            qbAdminIdioma.getData(idioma);
+        }*/
+    }
 
     /*public TextView getTv1() {
         return tv1;

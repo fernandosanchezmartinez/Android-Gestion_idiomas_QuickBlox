@@ -28,21 +28,21 @@ public class QBAdminTabla {
         public void getData() {
             QBRequestGetBuilder requestBuilder = new QBRequestGetBuilder();
 
-           // requestBuilder.eq("idi", idioma);
+
 
 
             QBCustomObjects.getObjects("Eventos", requestBuilder, new QBEntityCallbackImpl<ArrayList<QBCustomObject>>() {
                 @Override
                 public void onSuccess(ArrayList<QBCustomObject> arrCustomObjects, Bundle params) {
                     Log.v("QBAdminTabla", "Conx. Data correcto "+arrCustomObjects);
-                  //  listener.getIdioma(arrCustomObjects);
+
                     listener.cargarEventos(arrCustomObjects);
                 }
 
                 @Override
                 public void onError(List<String> errors) {
                     Log.v("QBAdminTabla", "Error Conx. Data " + errors);
-                  //  listener.getIdioma(null);
+
 
                 }
             });

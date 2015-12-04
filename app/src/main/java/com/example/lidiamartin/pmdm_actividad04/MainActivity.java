@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.lidiamartin.pmdm_lib.QBAdmin.JSONAdmin.JSONParse;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdmin;
+import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminIdiomaListener;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminListener;
 import com.example.lidiamartin.pmdm_lib.QBAdmin.QBAdminTabla;
 import com.quickblox.customobjects.model.QBCustomObject;
@@ -16,7 +17,7 @@ import com.quickblox.customobjects.model.QBCustomObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity implements QBAdminListener {
+public class MainActivity extends AppCompatActivity implements QBAdminListener, QBAdminIdiomaListener {
     private QBAdmin qbAdmin;
     private QBAdminTabla qbAdminTabla;
     private JSONParse jsonParse;
@@ -40,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener {
         qbAdmin.addQBAdminListener(this);
         qbAdmin.sessionSimple();
         qbAdminTabla = new QBAdminTabla();
-        qbAdminTabla.addListeners(this);
+        //qbAdminTabla.addListeners(this);
+
 
         jsonParse = new JSONParse();
         Log.v("MainActivity", "################################ JSON #################################################@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@######## ");
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener {
     public void sessionCreada(boolean esCreada) {
         if (esCreada) {
             Log.v("MainActivity", "session creada " + esCreada);
-            qbAdminTabla.getData(idioma);
+            //qbAdminTabla.getData(idioma);
 
 
         } else {
@@ -111,23 +113,23 @@ public class MainActivity extends AppCompatActivity implements QBAdminListener {
             case R.id.radioButton:
                 if (checked)
                     idioma = "1";
-                    break;
+                break;
             case R.id.radioButton2:
                 if (checked)
                     idioma = "2";
-                    break;
+                break;
             case R.id.radioButton3:
                 if (checked)
                     idioma = "3";
-                    break;
+                break;
         }
 
         if (idioma.equals("1")){
-            qbAdminTabla.getData(idioma);
+            //qbAdminTabla.getData(idioma);
         } else   if (idioma.equals("2")){
-            qbAdminTabla.getData(idioma);
+           // qbAdminTabla.getData(idioma);
         } else   if (idioma.equals("3")){
-            qbAdminTabla.getData(idioma);
+           // qbAdminTabla.getData(idioma);
         }
     }
 
